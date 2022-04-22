@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,28 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.panel {
+  padding: 1rem;
+}
+
+.panel h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.equalTo {
+  text-align: center;
+}
+
+.panel .box .total-field {
+  text-align: right;
+  font-weight: 600;
+}
+
+.panel .box .subTotal-field {
+  text-align: right;
+}
+
+.box {
+  margin-bottom: 1rem;
 }
