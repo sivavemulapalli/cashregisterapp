@@ -13,7 +13,6 @@ const BillsInPOS = () => {
   const [totalBillsAmount, setTotalBillsAmount] = useState(0);
 
   useEffect(() => {
-    console.log("billsInPosState", billsInPosState);
     let { hundreds, fifties, twenties, tens, fives, ones } = billsInPosState;
     let totalAmount =
       hundreds * 100 +
@@ -25,20 +24,6 @@ const BillsInPOS = () => {
 
     setTotalBillsAmount(totalAmount);
   }, [billsInPosState]);
-
-  // const calculateTotalBillsAmount = () => {
-  //   console.log("billsInPosState", billsInPosState);
-  //   let { hundreds, fifties, twenties, tens, fives, ones } = billsInPosState;
-  //   let totalAmount =
-  //     hundreds * 100 +
-  //     fifties * 50 +
-  //     twenties * 20 +
-  //     tens * 10 +
-  //     fives * 5 +
-  //     ones * 1;
-
-  //   setTotalBillsAmount(totalAmount);
-  // };
 
   const updateCount = (denomination, count) => {
     let { hundreds, fifties, twenties, tens, fives, ones } = billsInPosState;
@@ -74,8 +59,6 @@ const BillsInPOS = () => {
     }
     const updatedState = { hundreds, fifties, twenties, tens, fives, ones };
     setBillsInPosState(updatedState);
-
-    // calculateTotalBillsAmount();
   };
 
   return (
