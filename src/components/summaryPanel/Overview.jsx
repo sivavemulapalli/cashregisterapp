@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Box, Grid } from "@mui/material";
 
 const Overview = () => {
+  const [cashInPosFromLastNight, setCashInPosFromLastNight] = useState(0);
+
   return (
     <Box className="box transaction-details">
       <h3>Overview</h3>
@@ -13,7 +15,12 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" defaultValue="0" size="small" />
+          <TextField
+            id="outlined-size-small"
+            size="small"
+            value={cashInPosFromLastNight}
+            onChange={(e) => setCashInPosFromLastNight(e.target.value)}
+          />
         </Grid>
         <Grid item xs={8}>
           <div>Total Cash Transaction Today</div>
@@ -22,7 +29,7 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" defaultValue="0" size="small" />
+          <TextField id="outlined-size-small" size="small" />
         </Grid>
         <Grid item xs={8}>
           <div>Estimated Cash</div>
@@ -31,7 +38,7 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" defaultValue="0" size="small" />
+          <TextField id="outlined-size-small" size="small" />
         </Grid>
         <Grid item xs={8}>
           <div>Cash Expenses Today</div>
@@ -40,7 +47,7 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" defaultValue="0" size="small" />
+          <TextField id="outlined-size-small" size="small" />
         </Grid>
         <Grid item xs={8} className="total-field">
           <div>Total Misc Cash Incoming</div>
@@ -49,12 +56,7 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField
-            id="outlined-size-small"
-            defaultValue="0"
-            size="small"
-            variant="filled"
-          />
+          <TextField id="outlined-size-small" size="small" variant="filled" />
         </Grid>
       </Grid>
     </Box>

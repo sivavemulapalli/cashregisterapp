@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Grid } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setTotalRollsInPosAmount,
+  selectTotalRollsInPosAmount,
+} from "../../stores/CashCountInPosStore";
 
 const RollsInPOS = () => {
   const [rollsInPosState, setRollsInPosState] = useState({
@@ -8,14 +13,15 @@ const RollsInPOS = () => {
     NRs: 0,
     PRs: 0,
   });
-  const [totalRollsAmount, setTotalRollsAmount] = useState(0);
+  const totalRollsAmount = useSelector(selectTotalRollsInPosAmount);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let { QRs, DRs, NRs, PRs } = rollsInPosState;
     let totalAmount = QRs * 10 + DRs * 5 + NRs * 2 + PRs * 0.5;
 
-    setTotalRollsAmount(totalAmount);
-  }, [rollsInPosState]);
+    dispatch(setTotalRollsInPosAmount(totalAmount));
+  }, [rollsInPosState, dispatch]);
 
   const updateCount = (denomination, count) => {
     let { QRs, DRs, NRs, PRs } = rollsInPosState;

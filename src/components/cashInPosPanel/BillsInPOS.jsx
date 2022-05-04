@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Grid } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setTotalBillsInPosAmount,
+  selectTotalBillsInPosAmount,
+} from "../../stores/CashCountInPosStore";
 
-const BillsInPOS = () => {
+const BillsInPOS = ({ calculateTotalAmount }) => {
   const [billsInPosState, setBillsInPosState] = useState({
     hundreds: 0,
     fifties: 0,
@@ -10,7 +15,8 @@ const BillsInPOS = () => {
     fives: 0,
     ones: 0,
   });
-  const [totalBillsAmount, setTotalBillsAmount] = useState(0);
+  const totalBillsAmount = useSelector(selectTotalBillsInPosAmount);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let { hundreds, fifties, twenties, tens, fives, ones } = billsInPosState;
@@ -22,8 +28,9 @@ const BillsInPOS = () => {
       fives * 5 +
       ones * 1;
 
-    setTotalBillsAmount(totalAmount);
-  }, [billsInPosState]);
+    dispatch(setTotalBillsInPosAmount(totalAmount));
+    // calculateTotalAmount(totalAmount);
+  }, [billsInPosState, dispatch]);
 
   const updateCount = (denomination, count) => {
     let { hundreds, fifties, twenties, tens, fives, ones } = billsInPosState;

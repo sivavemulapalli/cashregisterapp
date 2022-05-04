@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Grid } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setTotalCoinsInPosAmount,
+  selectTotalCoinsInPosAmount,
+} from "../../stores/CashCountInPosStore";
 
 const CoinsInPOS = () => {
   const [coinsInPosState, setCoinsInPosState] = useState({
@@ -8,15 +13,16 @@ const CoinsInPOS = () => {
     nickels: 0,
     cents: 0,
   });
-  const [totalCoinsAmount, setTotalCoinsAmount] = useState(0);
+  const totalCoinsAmount = useSelector(selectTotalCoinsInPosAmount);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let { quarters, dimes, nickels, cents } = coinsInPosState;
     let totalAmount =
       quarters * 0.25 + dimes * 0.1 + nickels * 0.05 + cents * 0.01;
 
-    setTotalCoinsAmount(totalAmount);
-  }, [coinsInPosState]);
+    dispatch(setTotalCoinsInPosAmount(totalAmount));
+  }, [coinsInPosState, dispatch]);
 
   const updateCount = (denomination, count) => {
     let { quarters, dimes, nickels, cents } = coinsInPosState;
