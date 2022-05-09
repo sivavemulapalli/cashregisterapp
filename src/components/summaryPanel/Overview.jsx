@@ -1,8 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { TextField, Box, Grid } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTotalExpensesAmount } from "../../stores/ExpensesStore";
+import { selectTotalIncomingCashAmount } from "../../stores/IncomingCashStore";
+import { selectCashTransactionsAmount } from "../../stores/TransactionsStore";
+import {
+  setCashInPosFromLastNight,
+  selectCashInPosFromLastNight,
+} from "../../stores/OverviewStore";
 
 const Overview = () => {
-  const [cashInPosFromLastNight, setCashInPosFromLastNight] = useState(0);
+  const miscIncomingCash = useSelector(selectTotalIncomingCashAmount);
+  const expensesAmount = useSelector(selectTotalExpensesAmount);
+  const cashTransactionsAmount = useSelector(selectCashTransactionsAmount);
+  const cashAmountInPosFromLastNight = useSelector(
+    selectCashInPosFromLastNight
+  );
+  const dispatch = useDispatch();
+
+  const updateCashFromLastNight = (value) => {
+    dispatch(setCashInPosFromLastNight(parseFloat(value)));
+  };
 
   return (
     <Box className="box transaction-details">
@@ -18,8 +36,8 @@ const Overview = () => {
           <TextField
             id="outlined-size-small"
             size="small"
-            value={cashInPosFromLastNight}
-            onChange={(e) => setCashInPosFromLastNight(e.target.value)}
+            value={cashAmountInPosFromLastNight}
+            onChange={(e) => updateCashFromLastNight(e.target.value)}
           />
         </Grid>
         <Grid item xs={8}>
@@ -29,7 +47,12 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" size="small" />
+          <TextField
+            id="outlined-size-small"
+            size="small"
+            disabled={true}
+            value={cashTransactionsAmount}
+          />
         </Grid>
         <Grid item xs={8}>
           <div>Estimated Cash</div>
@@ -38,7 +61,12 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" size="small" />
+          <TextField
+            id="outlined-size-small"
+            size="small"
+            disabled={true}
+            value={cashAmountInPosFromLastNight}
+          />
         </Grid>
         <Grid item xs={8}>
           <div>Cash Expenses Today</div>
@@ -47,16 +75,28 @@ const Overview = () => {
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" size="small" />
+          <TextField
+            id="outlined-size-small"
+            size="small"
+            variant="filled"
+            disabled={true}
+            value={expensesAmount}
+          />
         </Grid>
-        <Grid item xs={8} className="total-field">
+        <Grid item xs={8}>
           <div>Total Misc Cash Incoming</div>
         </Grid>
         <Grid item xs={1}>
           <div>{"="}</div>
         </Grid>
         <Grid item xs={3}>
-          <TextField id="outlined-size-small" size="small" variant="filled" />
+          <TextField
+            id="outlined-size-small"
+            size="small"
+            variant="filled"
+            disabled={true}
+            value={miscIncomingCash}
+          />
         </Grid>
       </Grid>
     </Box>

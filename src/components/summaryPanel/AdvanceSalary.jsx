@@ -123,6 +123,7 @@ const AdvanceSalary = () => {
             id="outlined-size-small"
             size="small"
             variant="filled"
+            disabled={true}
             value={totalAdvanceSalary}
           />
         </Grid>

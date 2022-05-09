@@ -83,6 +83,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           value={billsInPosState.hundreds}
           onChange={(e) => {
             updateCount(100, e.target.value);
@@ -107,6 +108,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           value={billsInPosState.fifties}
           onChange={(e) => {
             updateCount(50, e.target.value);
@@ -131,6 +133,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           value={billsInPosState.twenties}
           onChange={(e) => {
             updateCount(20, e.target.value);
@@ -155,6 +158,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           value={billsInPosState.tens}
           onChange={(e) => {
             updateCount(10, e.target.value);
@@ -180,6 +184,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           value={billsInPosState.fives}
           onChange={(e) => {
             updateCount(5, e.target.value);
@@ -204,6 +209,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           value={billsInPosState.ones}
           onChange={(e) => {
             updateCount(1, e.target.value);

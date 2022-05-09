@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { TextField, Box, Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalTransactionsAmount,
+  setCashTransactionsAmount,
+  setCardTransactionsAmount,
+  setEbtTransactionsAmount,
+  selectCardTransactionsAmount,
+  selectCashTransactionsAmount,
+  selectEbtTransactionsAmount,
   selectTotalTransactionsAmount,
 } from "../../stores/TransactionsStore";
 
 const TransactionsDetails = () => {
-  const [cashTransactionsAmount, setCashTransactionsAmount] = useState(0);
-  const [cardTransactionsAmount, setCardTransactionsAmount] = useState(0);
-  const [ebtTransactionsAmount, setEbtTransactionsAmount] = useState(0);
-  // const [totalTransactionAmount, setTotalTransactionAmount] = useState(0);
+  const cashTransactionsAmount = useSelector(selectCashTransactionsAmount);
+  const cardTransactionsAmount = useSelector(selectCardTransactionsAmount);
+  const ebtTransactionsAmount = useSelector(selectEbtTransactionsAmount);
   const totalTransactionAmount = useSelector(selectTotalTransactionsAmount);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("cashTransacttionsAmount", cashTransactionsAmount);
-    console.log("typeof cashTransactionsAmount", typeof cashTransactionsAmount);
-    console.log("cardTransactionsAmount", cardTransactionsAmount);
-    console.log("typeof cardTransactionsAmount", typeof cardTransactionsAmount);
     dispatch(
       setTotalTransactionsAmount(
         cashTransactionsAmount + cardTransactionsAmount + ebtTransactionsAmount
@@ -30,6 +31,18 @@ const TransactionsDetails = () => {
     ebtTransactionsAmount,
     dispatch,
   ]);
+
+  const updateTransactionAmount = (setTransactionTypeAmount, value) => {
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      dispatch(setTransactionTypeAmount(parseFloat(value)));
+    } else {
+      dispatch(setTransactionTypeAmount(0));
+    }
+  };
 
   return (
     <Box className="box transaction-details">
@@ -46,11 +59,9 @@ const TransactionsDetails = () => {
             id="outlined-size-small"
             size="small"
             type="number"
-            onChange={(e) => {
-              return e.target.value > 0
-                ? setCashTransactionsAmount(parseInt(e.target.value))
-                : setCashTransactionsAmount(0);
-            }}
+            onChange={(e) =>
+              updateTransactionAmount(setCashTransactionsAmount, e.target.value)
+            }
             value={cashTransactionsAmount}
           />
         </Grid>
@@ -65,15 +76,9 @@ const TransactionsDetails = () => {
             id="outlined-size-small"
             size="small"
             type="number"
-            onChange={(e) => {
-              console.log("e.target.value", e.target.value);
-              console.log("e.target.value", typeof e.target.value);
-              console.log("e.target.value.length", e.target.value.length);
-
-              return e.target.value > 0
-                ? setCardTransactionsAmount(parseInt(e.target.value))
-                : setCardTransactionsAmount(0);
-            }}
+            onChange={(e) =>
+              updateTransactionAmount(setCardTransactionsAmount, e.target.value)
+            }
             value={cardTransactionsAmount}
           />
         </Grid>
@@ -88,11 +93,9 @@ const TransactionsDetails = () => {
             id="outlined-size-small"
             size="small"
             type="number"
-            onChange={(e) => {
-              return e.target.value > 0
-                ? setEbtTransactionsAmount(parseInt(e.target.value))
-                : setEbtTransactionsAmount(0);
-            }}
+            onChange={(e) =>
+              updateTransactionAmount(setEbtTransactionsAmount, e.target.value)
+            }
             value={ebtTransactionsAmount}
           />
         </Grid>

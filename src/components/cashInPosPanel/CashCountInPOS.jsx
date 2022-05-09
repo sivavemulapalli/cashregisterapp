@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Box, Paper, Grid, Divider } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import BillsInPOS from "./BillsInPOS";
 import RollsInPOS from "./RollsInPOS";
 import CoinsInPOS from "./CoinsInPOS";
 import {
-  // selectTotalCashCountInPos,
-  // setTotalCashCountInPos,
+  selectTotalCashCountInPos,
+  setTotalCashCountInPos,
   selectTotalBillsInPosAmount,
   selectTotalRollsInPosAmount,
   selectTotalCoinsInPosAmount,
@@ -14,8 +14,8 @@ import {
 
 const CashCountInPOS = () => {
   // const calculateTotal = () => {};
-  // const dispatch = useDispatch();
-  // const totalCashInPosAmount = useSelector(selectTotalCashCountInPos);
+  const dispatch = useDispatch();
+  const totalCashInPosAmount = useSelector(selectTotalCashCountInPos);
   const totalBillsAmount = useSelector(selectTotalBillsInPosAmount);
   const totalRollsAmount = useSelector(selectTotalRollsInPosAmount);
   const totalCoinsAmount = useSelector(selectTotalCoinsInPosAmount);
@@ -27,8 +27,16 @@ const CashCountInPOS = () => {
   //   dispatch(setTotalCashCountInPos(totalCashInPosAmount));
   // };
 
-  const totalCashInPosAmount =
-    totalBillsAmount + totalRollsAmount + totalCoinsAmount;
+  // const totalCashInPosAmount =
+  //   totalBillsAmount + totalRollsAmount + totalCoinsAmount;
+
+  useEffect(() => {
+    dispatch(
+      setTotalCashCountInPos(
+        totalBillsAmount + totalRollsAmount + totalCoinsAmount
+      )
+    );
+  }, [totalBillsAmount, totalRollsAmount, totalCoinsAmount, dispatch]);
 
   return (
     <Paper className="panel cashCount">
