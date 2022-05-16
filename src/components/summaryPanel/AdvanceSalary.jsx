@@ -23,7 +23,9 @@ const AdvanceSalary = () => {
     advanceSalary.forEach((advanceSalary) => {
       totalAdvanceSalary = totalAdvanceSalary + advanceSalary.amount;
     });
-    dispatch(setTotalAdvanceSalaryAmount(totalAdvanceSalary));
+    dispatch(
+      setTotalAdvanceSalaryAmount(parseFloat(totalAdvanceSalary.toFixed(2)))
+    );
   }, [advanceSalary, dispatch]);
 
   const updateDescription = (index, value) => {
@@ -34,7 +36,15 @@ const AdvanceSalary = () => {
 
   const updateAmount = (index, value) => {
     const newAdvanceSalary = [...advanceSalary];
-    newAdvanceSalary[index].amount = value.length > 0 ? parseFloat(value) : 0;
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      newAdvanceSalary[index].amount = parseFloat(value);
+    } else {
+      newAdvanceSalary[index].amount = 0;
+    }
     setAdvanceSalary(newAdvanceSalary);
   };
 
@@ -47,7 +57,7 @@ const AdvanceSalary = () => {
             fullWidth
             hiddenLabel={true}
             color="info"
-            placeholder="Expense Description"
+            placeholder="Description"
             id="outlined-size-small"
             size="small"
             value={advanceSalary[0].description}
@@ -61,6 +71,7 @@ const AdvanceSalary = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={advanceSalary[0].amount}
             onChange={(e) => updateAmount(0, e.target.value)}
           />
@@ -70,7 +81,7 @@ const AdvanceSalary = () => {
             fullWidth
             hiddenLabel={true}
             color="info"
-            placeholder="Expense Description"
+            placeholder="Description"
             id="outlined-size-small"
             size="small"
             value={advanceSalary[1].description}
@@ -84,6 +95,7 @@ const AdvanceSalary = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={advanceSalary[1].amount}
             onChange={(e) => updateAmount(1, e.target.value)}
           />
@@ -93,7 +105,7 @@ const AdvanceSalary = () => {
             fullWidth
             hiddenLabel={true}
             color="info"
-            placeholder="Expense Description"
+            placeholder="Description"
             id="outlined-size-small"
             size="small"
             value={advanceSalary[2].description}
@@ -107,6 +119,7 @@ const AdvanceSalary = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={advanceSalary[2].amount}
             onChange={(e) => updateAmount(2, e.target.value)}
           />
@@ -123,6 +136,7 @@ const AdvanceSalary = () => {
             id="outlined-size-small"
             size="small"
             variant="filled"
+            type="number"
             disabled={true}
             value={totalAdvanceSalary}
           />

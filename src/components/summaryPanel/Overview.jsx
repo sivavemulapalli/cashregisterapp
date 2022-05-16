@@ -19,7 +19,15 @@ const Overview = () => {
   const dispatch = useDispatch();
 
   const updateCashFromLastNight = (value) => {
-    dispatch(setCashInPosFromLastNight(parseFloat(value)));
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      dispatch(setCashInPosFromLastNight(parseFloat(value)));
+    } else {
+      dispatch(setCashInPosFromLastNight(0));
+    }
   };
 
   return (
@@ -36,6 +44,7 @@ const Overview = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={cashAmountInPosFromLastNight}
             onChange={(e) => updateCashFromLastNight(e.target.value)}
           />

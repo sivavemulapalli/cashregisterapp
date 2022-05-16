@@ -12,8 +12,6 @@ class SummaryPanel extends React.Component {
         <Divider />
         <AdvanceSalary />
         <EodClosingDetails />
-
-        <Divider />
       </Paper>
     );
   }

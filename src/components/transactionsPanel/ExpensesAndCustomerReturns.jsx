@@ -19,13 +19,11 @@ const ExpensesAndCustomerReturns = () => {
   useEffect(() => {
     let totalExpenseAmount = 0;
     expenses.forEach((expense) => {
-      totalExpenseAmount = totalExpenseAmount + parseFloat(expense.amount);
+      totalExpenseAmount = totalExpenseAmount + expense.amount;
     });
 
-    dispatch(setTotalExpensesAmount(totalExpenseAmount));
+    dispatch(setTotalExpensesAmount(parseFloat(totalExpenseAmount.toFixed(2))));
   }, [expenses, dispatch]);
-
-  // const [expenseTotal, setExpenseTotal] = useState(0);
 
   const updateDescription = (index, value) => {
     let newExpenses = [...expenses];
@@ -35,7 +33,15 @@ const ExpensesAndCustomerReturns = () => {
 
   const updateAmount = (index, value) => {
     let newExpenses = [...expenses];
-    newExpenses[index].amount = value.length > 0 ? value : "0";
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      newExpenses[index].amount = parseFloat(value);
+    } else {
+      newExpenses[index].amount = 0;
+    }
     setExpenses(newExpenses);
   };
 
@@ -62,6 +68,8 @@ const ExpensesAndCustomerReturns = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
+            // defaultValue={0}
             value={expenses[0].amount}
             onChange={(e) => updateAmount(0, e.target.value)}
           />
@@ -85,6 +93,8 @@ const ExpensesAndCustomerReturns = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
+            // defaultValue={0}
             value={expenses[1].amount}
             onChange={(e) => updateAmount(1, e.target.value)}
           />
@@ -108,6 +118,8 @@ const ExpensesAndCustomerReturns = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
+            // defaultValue={0}
             value={expenses[2].amount}
             onChange={(e) => updateAmount(2, e.target.value)}
           />
@@ -131,6 +143,8 @@ const ExpensesAndCustomerReturns = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
+            // defaultValue={0}
             value={expenses[3].amount}
             onChange={(e) => updateAmount(3, e.target.value)}
           />

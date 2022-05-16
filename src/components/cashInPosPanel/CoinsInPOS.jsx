@@ -66,6 +66,7 @@ const CoinsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("quarters", e.target.value)}
           value={coinsInPosState.quarters}
         />
@@ -89,6 +90,7 @@ const CoinsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("dimes", e.target.value)}
           value={coinsInPosState.dimes}
         />
@@ -112,6 +114,7 @@ const CoinsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("nickels", e.target.value)}
           value={coinsInPosState.nickels}
         />
@@ -135,6 +138,7 @@ const CoinsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("cents", e.target.value)}
           value={coinsInPosState.cents}
         />

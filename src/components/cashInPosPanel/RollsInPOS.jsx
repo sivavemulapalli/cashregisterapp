@@ -66,6 +66,7 @@ const RollsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("QR", e.target.value)}
           value={rollsInPosState.QRs}
         />
@@ -88,6 +89,7 @@ const RollsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("DR", e.target.value)}
           value={rollsInPosState.DRs}
         />
@@ -110,6 +112,7 @@ const RollsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("NR", e.target.value)}
           value={rollsInPosState.NRs}
         />
@@ -132,6 +135,7 @@ const RollsInPOS = () => {
         <TextField
           id="outlined-size-small"
           size="small"
+          type="number"
           onChange={(e) => updateCount("PR", e.target.value)}
           value={rollsInPosState.PRs}
         />

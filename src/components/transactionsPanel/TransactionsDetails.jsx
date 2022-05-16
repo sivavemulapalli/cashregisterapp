@@ -22,7 +22,13 @@ const TransactionsDetails = () => {
   useEffect(() => {
     dispatch(
       setTotalTransactionsAmount(
-        cashTransactionsAmount + cardTransactionsAmount + ebtTransactionsAmount
+        parseFloat(
+          (
+            cashTransactionsAmount +
+            cardTransactionsAmount +
+            ebtTransactionsAmount
+          ).toFixed(2)
+        )
       )
     );
   }, [

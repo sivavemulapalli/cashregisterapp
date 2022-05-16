@@ -16,16 +16,17 @@ const MiscIncoming = () => {
   const dispatch = useDispatch();
   const incomingCashTotal = useSelector(selectTotalIncomingCashAmount);
 
-  // const [incomingCashTotal, setIncomingCashTotal] = useState(0);
-
   useEffect(() => {
     let totalIncomingCashAmount = 0;
     incomingCash.forEach((incomingCash) => {
       totalIncomingCashAmount =
         totalIncomingCashAmount + parseFloat(incomingCash.amount);
     });
+    console.log("totalIncomingCash", totalIncomingCashAmount.toFixed(2));
 
-    dispatch(setTotalIncomingCashAmount(totalIncomingCashAmount));
+    dispatch(
+      setTotalIncomingCashAmount(parseFloat(totalIncomingCashAmount.toFixed(2)))
+    );
   }, [incomingCash, dispatch]);
 
   const updateDescription = (index, value) => {
@@ -36,7 +37,16 @@ const MiscIncoming = () => {
 
   const updateAmount = (index, value) => {
     let newIncomingCash = [...incomingCash];
-    newIncomingCash[index].amount = value.length > 0 ? value : "0";
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      newIncomingCash[index].amount = parseFloat(value);
+    } else {
+      newIncomingCash[index].amount = 0;
+    }
+
     setIncomingCash(newIncomingCash);
   };
 
@@ -63,6 +73,7 @@ const MiscIncoming = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={incomingCash[0].amount}
             onChange={(e) => updateAmount(0, e.target.value)}
           />
@@ -86,6 +97,7 @@ const MiscIncoming = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={incomingCash[1].amount}
             onChange={(e) => updateAmount(1, e.target.value)}
           />
@@ -109,6 +121,7 @@ const MiscIncoming = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={incomingCash[2].amount}
             onChange={(e) => updateAmount(2, e.target.value)}
           />
@@ -132,6 +145,7 @@ const MiscIncoming = () => {
           <TextField
             id="outlined-size-small"
             size="small"
+            type="number"
             value={incomingCash[3].amount}
             onChange={(e) => updateAmount(3, e.target.value)}
           />

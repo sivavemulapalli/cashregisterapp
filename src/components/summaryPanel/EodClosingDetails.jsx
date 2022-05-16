@@ -18,6 +18,31 @@ const EodClosingDetails = () => {
 
   const estimatedPosShouldBe =
     totalCashFromLastNight - totalExpenses - advanceSalary + incomingCash;
+
+  const updateTakeHomeCash = (value) => {
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      setTakeHomeCash(parseFloat(value));
+    } else {
+      setTakeHomeCash(parseFloat(value));
+    }
+  };
+
+  const updateCashFromBank = (value) => {
+    if (
+      value.length > 0 &&
+      !isNaN(parseFloat(value)) &&
+      typeof parseFloat(value) === "number"
+    ) {
+      setCashFromBank(parseFloat(value));
+    } else {
+      setCashFromBank(parseFloat(value));
+    }
+  };
+
   return (
     <Box className="box misc-incoming">
       <h3>EOD Closing Details</h3>
@@ -81,11 +106,7 @@ const EodClosingDetails = () => {
             id="outlined-size-small"
             size="small"
             value={takeHomeCash}
-            onChange={(e) =>
-              e.target.value.length > 0 && typeof e.target.value === "number"
-                ? setTakeHomeCash(parseFloat(e.target.value))
-                : setTakeHomeCash(0)
-            }
+            onChange={(e) => updateTakeHomeCash(e.target.value)}
           />
         </Grid>
         <Grid item xs={8} className="total-field">
@@ -113,11 +134,7 @@ const EodClosingDetails = () => {
             id="outlined-size-small"
             size="small"
             value={cashFromBank}
-            onChange={(e) =>
-              e.target.value.length > 0 && typeof e.target.value === "number"
-                ? setCashFromBank(parseFloat(e.target.value))
-                : setCashFromBank(0)
-            }
+            onChange={(e) => updateCashFromBank(e.target.value)}
           />
         </Grid>
       </Grid>
