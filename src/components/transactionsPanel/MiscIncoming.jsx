@@ -22,7 +22,6 @@ const MiscIncoming = () => {
       totalIncomingCashAmount =
         totalIncomingCashAmount + parseFloat(incomingCash.amount);
     });
-    console.log("totalIncomingCash", totalIncomingCashAmount.toFixed(2));
 
     dispatch(
       setTotalIncomingCashAmount(parseFloat(totalIncomingCashAmount.toFixed(2)))

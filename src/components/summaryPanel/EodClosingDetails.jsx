@@ -16,8 +16,14 @@ const EodClosingDetails = () => {
   const [takeHomeCash, setTakeHomeCash] = useState(0);
   const [cashFromBank, setCashFromBank] = useState(0);
 
-  const estimatedPosShouldBe =
-    totalCashFromLastNight - totalExpenses - advanceSalary + incomingCash;
+  const estimatedPosShouldBe = parseFloat(
+    (
+      totalCashFromLastNight -
+      totalExpenses -
+      advanceSalary +
+      incomingCash
+    ).toFixed(2)
+  );
 
   const updateTakeHomeCash = (value) => {
     if (

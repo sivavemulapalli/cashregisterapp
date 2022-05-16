@@ -13,22 +13,11 @@ import {
 } from "../../stores/CashCountInPosStore";
 
 const CashCountInPOS = () => {
-  // const calculateTotal = () => {};
   const dispatch = useDispatch();
   const totalCashInPosAmount = useSelector(selectTotalCashCountInPos);
   const totalBillsAmount = useSelector(selectTotalBillsInPosAmount);
   const totalRollsAmount = useSelector(selectTotalRollsInPosAmount);
   const totalCoinsAmount = useSelector(selectTotalCoinsInPosAmount);
-
-  // const calculateTotalCashInPosAmount = (sectionAmount) => {
-  //   console.log("totalCashInPosAmount", totalCashInPosAmount);
-  //   console.log("sectionAmount", sectionAmount);
-  //   totalCashInPosAmount = totalCashInPosAmount + sectionAmount;
-  //   dispatch(setTotalCashCountInPos(totalCashInPosAmount));
-  // };
-
-  // const totalCashInPosAmount =
-  //   totalBillsAmount + totalRollsAmount + totalCoinsAmount;
 
   useEffect(() => {
     dispatch(
