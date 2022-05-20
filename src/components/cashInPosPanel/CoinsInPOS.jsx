@@ -18,8 +18,9 @@ const CoinsInPOS = () => {
 
   useEffect(() => {
     let { quarters, dimes, nickels, cents } = coinsInPosState;
-    let totalAmount =
-      quarters * 0.25 + dimes * 0.1 + nickels * 0.05 + cents * 0.01;
+    let totalAmount = parseFloat(
+      (quarters * 0.25 + dimes * 0.1 + nickels * 0.05 + cents * 0.01).toFixed(2)
+    );
 
     dispatch(setTotalCoinsInPosAmount(totalAmount));
   }, [coinsInPosState, dispatch]);
@@ -79,7 +80,7 @@ const CoinsInPOS = () => {
           id="outlined-size-small"
           size="small"
           disabled={true}
-          value={coinsInPosState.quarters * 0.25}
+          value={parseFloat((coinsInPosState.quarters * 0.25).toFixed(2))}
         />
       </Grid>
 
@@ -103,7 +104,7 @@ const CoinsInPOS = () => {
           id="outlined-size-small"
           size="small"
           disabled={true}
-          value={coinsInPosState.dimes * 0.1}
+          value={parseFloat((coinsInPosState.dimes * 0.1).toFixed(2))}
         />
       </Grid>
 
@@ -127,7 +128,7 @@ const CoinsInPOS = () => {
           id="outlined-size-small"
           size="small"
           disabled={true}
-          value={coinsInPosState.nickels * 0.05}
+          value={parseFloat((coinsInPosState.nickels * 0.05).toFixed(2))}
         />
       </Grid>
 
@@ -151,7 +152,7 @@ const CoinsInPOS = () => {
           id="outlined-size-small"
           size="small"
           disabled={true}
-          value={coinsInPosState.cents * 0.01}
+          value={parseFloat((coinsInPosState.cents * 0.01).toFixed(2))}
         />
       </Grid>
 
