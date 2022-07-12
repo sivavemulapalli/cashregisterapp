@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TextField, Grid } from "@mui/material";
+import { TextField, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalCoinsInPosAmount,
@@ -56,12 +56,12 @@ const CoinsInPOS = () => {
     <Grid
       container
       alignItems="center"
-      rowSpacing={1}
+      rowSpacing={0}
       textAlign="right"
       columnSpacing={2}
     >
       <Grid item xs={3}>
-        <div>0.25 x</div>
+        <Typography>0.25 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -72,8 +72,8 @@ const CoinsInPOS = () => {
           value={coinsInPosState.quarters}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -85,7 +85,7 @@ const CoinsInPOS = () => {
       </Grid>
 
       <Grid item xs={3}>
-        <div>0.10 x</div>
+        <Typography>0.10 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -96,8 +96,8 @@ const CoinsInPOS = () => {
           value={coinsInPosState.dimes}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -109,7 +109,7 @@ const CoinsInPOS = () => {
       </Grid>
 
       <Grid item xs={3}>
-        <div>0.05 x</div>
+        <Typography>0.05 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -120,8 +120,8 @@ const CoinsInPOS = () => {
           value={coinsInPosState.nickels}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -133,7 +133,7 @@ const CoinsInPOS = () => {
       </Grid>
 
       <Grid item xs={3}>
-        <div>0.01 x</div>
+        <Typography>0.01 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -144,8 +144,8 @@ const CoinsInPOS = () => {
           value={coinsInPosState.cents}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -158,13 +158,16 @@ const CoinsInPOS = () => {
 
       <Grid item xs={3}></Grid>
       <Grid item xs={3} className="subTotal-field">
-        <div className="total-text">Total Coins</div>
+        <div className="total-text">
+          <Typography>Total Coins</Typography>
+        </div>
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
+          hiddenLabel
           id="outlined-size-small"
           disabled={true}
           size="small"

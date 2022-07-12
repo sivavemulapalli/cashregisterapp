@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TextField, Grid } from "@mui/material";
+import { TextField, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalBillsInPosAmount,
@@ -72,12 +72,12 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
     <Grid
       container
       alignItems="center"
-      rowSpacing={1}
+      rowSpacing={0}
       textAlign="right"
       columnSpacing={2}
     >
       <Grid item xs={3}>
-        <div>100 x</div>
+        <Typography>100 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -90,8 +90,8 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -102,7 +102,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>50 x</div>
+        <Typography>50 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -115,8 +115,8 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -127,7 +127,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>20 x</div>
+        <Typography>20 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -140,8 +140,8 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -152,7 +152,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>10 x</div>
+        <Typography>10 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -165,8 +165,8 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -178,7 +178,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
       </Grid>
 
       <Grid item xs={3}>
-        <div>5 x</div>
+        <Typography>5 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -191,8 +191,8 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -203,7 +203,7 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>1 x</div>
+        <Typography>1 x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -216,23 +216,27 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
-        <TextField
-          id="outlined-size-small"
-          size="small"
-          disabled={true}
-          value={billsInPosState.ones * 1}
-        />
+        <Typography>
+          <TextField
+            id="outlined-size-small"
+            size="small"
+            disabled={true}
+            value={billsInPosState.ones * 1}
+          />
+        </Typography>
       </Grid>
       <Grid item xs={3}></Grid>
       <Grid item xs={3} className="subTotal-field">
-        <div className="total-text">Total Bills</div>
+        <div className="total-text">
+          <Typography>Total Bills</Typography>
+        </div>
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField

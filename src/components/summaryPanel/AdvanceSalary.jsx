@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalAdvanceSalaryAmount,
@@ -15,8 +15,6 @@ const AdvanceSalary = () => {
 
   const dispatch = useDispatch();
   const totalAdvanceSalary = useSelector(selectTotalAdvanceSalaryAmount);
-
-  // const [totalAdvanceSalary, setTotalAdvanceSalary] = useState(0);
 
   useEffect(() => {
     let totalAdvanceSalary = 0;
@@ -50,8 +48,8 @@ const AdvanceSalary = () => {
 
   return (
     <Box className="box expenses-customerReturns">
-      <h3>If Any Advance Salary</h3>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={2}>
+      <Typography variant="h6">If Any Advance Salary</Typography>
+      <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
           <TextField
             fullWidth
@@ -65,7 +63,7 @@ const AdvanceSalary = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -89,7 +87,7 @@ const AdvanceSalary = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -113,7 +111,7 @@ const AdvanceSalary = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -126,18 +124,18 @@ const AdvanceSalary = () => {
         </Grid>
 
         <Grid item xs={8} className="total-field">
-          <div>Total Advance Payouts</div>
+          <Typography variant="subtitle1">Total Advance Payouts</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            type="number"
-            disabled={true}
             value={totalAdvanceSalary}
           />
         </Grid>

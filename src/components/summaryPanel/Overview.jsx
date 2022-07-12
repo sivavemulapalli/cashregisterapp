@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTotalExpensesAmount } from "../../stores/ExpensesStore";
 import { selectTotalIncomingCashAmount } from "../../stores/IncomingCashStore";
@@ -32,13 +32,13 @@ const Overview = () => {
 
   return (
     <Box className="box transaction-details">
-      <h3>Overview</h3>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={2}>
+      <Typography variant="h6">Overview</Typography>
+      <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
-          <div>Cash left in POS last night</div>
+          <Typography>Cash left in POS last night</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -50,10 +50,10 @@ const Overview = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Total Cash Transaction Today</div>
+          <Typography>Total Cash Transaction Today</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -64,10 +64,10 @@ const Overview = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Estimated Cash</div>
+          <Typography>Estimated Cash</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -78,32 +78,34 @@ const Overview = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Cash Expenses Today</div>
+          <Typography>Cash Expenses Today</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            disabled={true}
             value={expensesAmount}
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Total Misc Cash Incoming</div>
+          <Typography>Total Misc Cash Incoming</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            disabled={true}
             value={miscIncomingCash}
           />
         </Grid>

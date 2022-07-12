@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalTransactionsAmount,
@@ -52,13 +52,13 @@ const TransactionsDetails = () => {
 
   return (
     <Box className="box transaction-details">
-      <h3>Transactions Details</h3>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={2}>
+      <Typography variant="h6">Transactions Details</Typography>
+      <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
-          <div>Cash Transactions</div>
+          <Typography>Cash Transactions</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -72,10 +72,10 @@ const TransactionsDetails = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Credit/Debit Transactions</div>
+          <Typography>Credit/Debit Transactions</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -89,10 +89,10 @@ const TransactionsDetails = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <div>EBT Transactions</div>
+          <Typography>EBT Transactions</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -106,10 +106,12 @@ const TransactionsDetails = () => {
           />
         </Grid>
         <Grid item xs={8} className="total-field">
-          <div>Total Transaction Activity</div>
+          <Typography variant="subtitle1">
+            Total Transaction Activity
+          </Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField

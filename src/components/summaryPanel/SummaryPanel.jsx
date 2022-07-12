@@ -9,9 +9,9 @@ class SummaryPanel extends React.Component {
     return (
       <Paper className="panel">
         <Overview />
-        <Divider />
+        <Divider className="section-divider" />
         <AdvanceSalary />
-        <Divider />
+        <Divider className="section-divider" />
         <EodClosingDetails />
       </Paper>
     );

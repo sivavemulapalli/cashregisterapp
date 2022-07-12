@@ -1,12 +1,17 @@
-
 .panel {
-  padding: 1rem;
+  padding: 0.25rem 1rem;
   height: 100%;
 }
 
-.panel h3 {
+.panel .section-divider {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.panel h6 {
   text-align: center;
-  margin-bottom: 2rem;
+  /* margin-bottom: 0.5rem;
+  margin-top: 0.5rem; */
 }
 .equalTo {
   text-align: center;
@@ -14,13 +19,12 @@
 
 .panel .box .total-field {
   text-align: right;
-  font-weight: 600;
 }
 
 .panel .box .subTotal-field {
   text-align: right;
 }
-
-.box {
-  margin-bottom: 1rem;
+.MuiFormControl-root.MuiFormControl-marginDense.MuiTextField-root {
+  margin-top: 2px;
 }
+

@@ -9,9 +9,9 @@ class Transactions extends React.Component {
     return (
       <Paper className="panel">
         <TransactionsDetails />
-        <Divider />
+        <Divider className="section-divider" />
         <ExpensesAndCustomerReturns />
-        <Divider />
+        <Divider className="section-divider" />
         <MiscIncoming />
       </Paper>
     );

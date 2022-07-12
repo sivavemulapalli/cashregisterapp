@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalIncomingCashAmount,
@@ -51,8 +51,8 @@ const MiscIncoming = () => {
 
   return (
     <Box className="box misc-incoming">
-      <h3>Misc Incoming (Cash Only)</h3>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={2}>
+      <Typography variant="h6">Misc Incoming (Cash Only)</Typography>
+      <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
           <TextField
             fullWidth
@@ -66,7 +66,7 @@ const MiscIncoming = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -90,7 +90,7 @@ const MiscIncoming = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -114,7 +114,7 @@ const MiscIncoming = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -138,7 +138,7 @@ const MiscIncoming = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -150,17 +150,18 @@ const MiscIncoming = () => {
           />
         </Grid>
         <Grid item xs={8} className="total-field">
-          <div>Total Misc Cash Incoming</div>
+          <Typography variant="subtitle1">Total Misc Cash Incoming</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            disabled={true}
             value={incomingCashTotal}
           />
         </Grid>

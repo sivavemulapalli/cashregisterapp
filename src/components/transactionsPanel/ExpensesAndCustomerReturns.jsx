@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalExpensesAmount,
@@ -47,8 +47,10 @@ const ExpensesAndCustomerReturns = () => {
 
   return (
     <Box className="box expenses-customerReturns">
-      <h3>Expenses + Customer Returns (Cash Only)</h3>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={2}>
+      <Typography variant="h6">
+        Expenses + Customer Returns (Cash Only)
+      </Typography>
+      <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
           <TextField
             fullWidth
@@ -62,14 +64,13 @@ const ExpensesAndCustomerReturns = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
             id="outlined-size-small"
             size="small"
             type="number"
-            // defaultValue={0}
             value={expenses[0].amount}
             onChange={(e) => updateAmount(0, e.target.value)}
           />
@@ -87,14 +88,13 @@ const ExpensesAndCustomerReturns = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
             id="outlined-size-small"
             size="small"
             type="number"
-            // defaultValue={0}
             value={expenses[1].amount}
             onChange={(e) => updateAmount(1, e.target.value)}
           />
@@ -112,14 +112,13 @@ const ExpensesAndCustomerReturns = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
             id="outlined-size-small"
             size="small"
             type="number"
-            // defaultValue={0}
             value={expenses[2].amount}
             onChange={(e) => updateAmount(2, e.target.value)}
           />
@@ -137,28 +136,29 @@ const ExpensesAndCustomerReturns = () => {
           />
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
             id="outlined-size-small"
             size="small"
             type="number"
-            // defaultValue={0}
             value={expenses[3].amount}
             onChange={(e) => updateAmount(3, e.target.value)}
           />
         </Grid>
 
         <Grid item xs={8} className="total-field">
-          <div>Total Expenses</div>
+          <Typography variant="subtitle1">Total Expenses</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
             value={expenseTotal}

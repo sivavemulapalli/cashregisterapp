@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Box, Grid } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectCashInPosFromLastNight } from "../../stores/OverviewStore";
 import { selectTotalExpensesAmount } from "../../stores/ExpensesStore";
@@ -51,61 +51,64 @@ const EodClosingDetails = () => {
 
   return (
     <Box className="box misc-incoming">
-      <h3>EOD Closing Details</h3>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={2}>
+      <Typography variant="h6">EOD Closing Details</Typography>
+      <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
-          <div>
+          <Typography>
             Estimated POS Should be (Est. Cash - Expenses - Adv. Pay+ Misc.
             Cash)
-          </div>
+          </Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            disabled={true}
             value={estimatedPosShouldBe}
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Total Cash in POS Available</div>
+          <Typography>Total Cash in POS Available</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            disabled={true}
             value={totalCashInPos}
           />
         </Grid>
         <Grid item xs={8}>
-          <div>Cash Difference(+/-)</div>
+          <Typography>Cash Difference(+/-)</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
-            disabled={true}
             value={totalCashInPos - estimatedPosShouldBe}
           />
         </Grid>
         <Grid item xs={8} className="total-field">
-          <div>Take Home Cash</div>
+          <Typography variant="subtitle1">Take Home Cash</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -116,24 +119,26 @@ const EodClosingDetails = () => {
           />
         </Grid>
         <Grid item xs={8} className="total-field">
-          <div>Cash Left in POS</div>
+          <Typography variant="subtitle1">Cash Left in POS</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField
+            hiddenLabel
             id="outlined-size-small"
+            disabled={true}
             size="small"
             variant="filled"
             value={totalCashInPos - takeHomeCash}
           />
         </Grid>
         <Grid item xs={8}>
-          <div>If Any Cash Withdrawn from Bank Today</div>
+          <Typography>If Any Cash Withdrawn from Bank Today</Typography>
         </Grid>
         <Grid item xs={1}>
-          <div>{"="}</div>
+          <Typography>{"="}</Typography>
         </Grid>
         <Grid item xs={3}>
           <TextField

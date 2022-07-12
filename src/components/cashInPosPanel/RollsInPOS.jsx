@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Grid } from "@mui/material";
+import { TextField, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTotalRollsInPosAmount,
@@ -55,12 +55,12 @@ const RollsInPOS = () => {
     <Grid
       container
       alignItems="center"
-      rowSpacing={1}
+      rowSpacing={0}
       textAlign="right"
       columnSpacing={2}
     >
       <Grid item xs={3}>
-        <div>QR x</div>
+        <Typography>QR x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -71,8 +71,8 @@ const RollsInPOS = () => {
           value={rollsInPosState.QRs}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -83,7 +83,7 @@ const RollsInPOS = () => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>DR x</div>
+        <Typography>DR x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -94,8 +94,8 @@ const RollsInPOS = () => {
           value={rollsInPosState.DRs}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -106,7 +106,7 @@ const RollsInPOS = () => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>NR x</div>
+        <Typography>NR x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -117,8 +117,8 @@ const RollsInPOS = () => {
           value={rollsInPosState.NRs}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -129,7 +129,7 @@ const RollsInPOS = () => {
         />
       </Grid>
       <Grid item xs={3}>
-        <div>PR x</div>
+        <Typography>PR x</Typography>
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -140,8 +140,8 @@ const RollsInPOS = () => {
           value={rollsInPosState.PRs}
         />
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
@@ -154,13 +154,16 @@ const RollsInPOS = () => {
 
       <Grid item xs={3}></Grid>
       <Grid item xs={3} className="subTotal-field">
-        <div className="total-text">Total Rolls</div>
+        <div className="total-text">
+          <Typography>Total Rolls</Typography>
+        </div>
       </Grid>
-      <Grid item xs={2}>
-        <div className="equalTo"> = </div>
+      <Grid item xs={2} className="equalTo">
+        <Typography>{"="}</Typography>
       </Grid>
       <Grid item xs={4}>
         <TextField
+          hiddenLabel
           id="outlined-size-small"
           disabled={true}
           size="small"
