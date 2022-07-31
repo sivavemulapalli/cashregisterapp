@@ -47,7 +47,7 @@ const ExpensesAndCustomerReturns = () => {
 
   return (
     <Box className="box expenses-customerReturns">
-      <Typography variant="h6">
+      <Typography variant="h6" className="expenses-heading">
         Expenses + Customer Returns (Cash Only)
       </Typography>
       <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>

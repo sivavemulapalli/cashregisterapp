@@ -75,8 +75,8 @@ let theme = createTheme({
     },
   },
   typography: {
-    htmlFontSize: 36,
-    fontSize: 24,
+    htmlFontSize: 46,
+    fontSize: 26,
     h6: {
       fontSize: "1.125rem",
       fontWeight: 600,

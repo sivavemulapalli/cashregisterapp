@@ -51,7 +51,9 @@ const MiscIncoming = () => {
 
   return (
     <Box className="box misc-incoming">
-      <Typography variant="h6">Misc Incoming (Cash Only)</Typography>
+      <Typography variant="h6" className="misc-heading">
+        Misc Incoming (Cash Only)
+      </Typography>
       <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
           <TextField

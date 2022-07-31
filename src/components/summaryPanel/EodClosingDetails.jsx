@@ -51,7 +51,9 @@ const EodClosingDetails = () => {
 
   return (
     <Box className="box misc-incoming">
-      <Typography variant="h6">EOD Closing Details</Typography>
+      <Typography variant="h6" className="eod-closing-details-heading">
+        EOD Closing Details
+      </Typography>
       <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
           <Typography>

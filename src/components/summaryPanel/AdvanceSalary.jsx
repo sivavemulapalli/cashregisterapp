@@ -48,7 +48,9 @@ const AdvanceSalary = () => {
 
   return (
     <Box className="box expenses-customerReturns">
-      <Typography variant="h6">If Any Advance Salary</Typography>
+      <Typography variant="h6" className="advance-salary-heading">
+        If Any Advance Salary
+      </Typography>
       <Grid container alignItems="center" rowSpacing={0} columnSpacing={2}>
         <Grid item xs={8}>
           <TextField
