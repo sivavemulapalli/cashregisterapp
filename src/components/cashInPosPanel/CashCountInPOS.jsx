@@ -36,7 +36,6 @@ const CashCountInPOS = () => {
 
   return (
     <Paper className="panel cashCount">
-      {/* <Box className="box bills"> */}
       <Typography variant="h6">Cash Count in POS</Typography>
       <Grid
         container
@@ -75,7 +74,6 @@ const CashCountInPOS = () => {
           />
         </Grid>
       </Grid>
-      {/* </Box> */}
     </Paper>
   );
 };

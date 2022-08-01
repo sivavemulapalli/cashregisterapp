@@ -7,7 +7,7 @@ import EodClosingDetails from "./EodClosingDetails";
 class SummaryPanel extends React.Component {
   render() {
     return (
-      <Paper className="panel">
+      <Paper className="panel summary">
         <Overview />
         <Divider className="section-divider" />
         <AdvanceSalary />

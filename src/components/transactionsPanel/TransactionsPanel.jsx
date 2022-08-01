@@ -7,7 +7,7 @@ import MiscIncoming from "./MiscIncoming";
 class Transactions extends React.Component {
   render() {
     return (
-      <Paper className="panel">
+      <Paper className="panel transactions">
         <TransactionsDetails />
         <Divider className="section-divider" />
         <ExpensesAndCustomerReturns />
