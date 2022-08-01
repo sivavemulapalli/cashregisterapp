@@ -1,12 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  TextField,
-  Box,
-  Paper,
-  Grid,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { TextField, Paper, Grid, Divider, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import BillsInPOS from "./BillsInPOS";
 import RollsInPOS from "./RollsInPOS";
