@@ -29,7 +29,6 @@ const BillsInPOS = ({ calculateTotalAmount }) => {
       ones * 1;
 
     dispatch(setTotalBillsInPosAmount(totalAmount));
-    // calculateTotalAmount(totalAmount);
   }, [billsInPosState, dispatch]);
 
   const updateCount = (denomination, count) => {
